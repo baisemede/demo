@@ -1,21 +1,34 @@
 body{
-	background: black;
-	color: white;
+	background: #efefef;
+	color: black;
 	margin: 0px;
 }
 a{
 	color: inherit;
 	text-decoration: none;
 }
+*{
+	margin: 0px;
+	padding: 0px;
+}
+hr{
+	height: 0;
+	border: none;
+	border-top: 1px solid #dedede; 
+}
+.margins{
+	padding: 0 16px;
+}
 .top-nav-bar{
 	padding-top: 14px;
 	padding-bottom: 14px;
-	padding-right: 16px;
-	padding-left: 16px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 }
-.top-nav-bar>nav{
+.top-nav-bar nav{
 	padding-top: 8px;
-
 }
 
 .clearfix::after{
@@ -23,17 +36,17 @@ a{
 	display: block;
 	clear: both;
 }
-.top-nav-bar>nav>ul{
+.top-nav-bar nav>ul{
 	list-style: none;
 	margin: 0;
 	padding: 0; 
 }
-.top-nav-bar>nav>ul>li{
+.top-nav-bar nav>ul>li{
 	float: left;
 	margin-left: 17px;
 	margin-right: 17px;
 }
-.top-nav-bar>nav>ul>li>a{
+.top-nav-bar nav>ul>li>a{
 	font-size: 12px;
 	color: #B7B7B7;
 	font-weight: bold;
@@ -46,10 +59,10 @@ a{
 .top-nav-bar>a{
 	float: left;
 }
-.top-nav-bar>nav{
+.top-nav-bar nav{
 	float: right;
 }
-.top-nav-bar>nav>ul>li>a:hover{
+.top-nav-bar nav>ul>li>a:hover{
 	border-bottom: 3px solid #e06567;
 }
 .top-nav-bar .logo{
@@ -68,4 +81,97 @@ a{
 	color: #9a9da2;
 }
 
+.banner{
+	background-image: url(./img/rs-cover.jpg);
+	height: 540px;
+	background-position: center center;
+	background-size: cover; /*按比例缩放*/
+}
+.banner .mask{
+	height: 540px;
+	background-color: rgba(0,0,0,0.7);
+}
 
+.usercard{          /*名片*/
+	
+	max-width: 940px;	/*最大像素*/
+	margin-left: auto;   /*自动居中*/
+	margin-right: auto;
+	background-color: #ffffff;
+}
+.usercard .welcome{
+	background: #E6686A;
+	color: white;
+	display: inline-block;
+	padding: 5px 15px;
+	line-height: 20px;
+	position: relative; /*绝对定位*/
+	
+}
+.usercard .welcome .triangle{
+	display: block;
+	border: 10px solid transparent;
+	width: 0px;
+	border-left-color: #E6686A;
+	border-top: 0px;
+	position: absolute; /*绝对定位*/
+	left: 5px;
+	top: 100%; 
+}
+.usercard .picture{
+	float: left;
+	margin-right: 65px;
+}
+.usercard .text{
+	float: left;
+	width: 470px;
+}
+
+.usercard .all{
+	
+	padding: 45px;
+}
+.usercard .text h1{
+	margin-top: 22px;
+}
+.usercard .text p{
+	margin-top: 6px;
+}
+.usercard .text hr{
+	margin: 20px 0;
+}
+.usercard dl dt,
+.usercard dl dd{
+	float: left;
+	padding: 5px 0;
+}
+.usercard dl dt{
+	width: 30%;
+	font-weight: bold;
+}
+.usercard dl dd{
+	width: 70%;
+	color: #9da0a7;
+}
+
+.usercard>footer.media{
+	background: #e6686a;
+	text-align: center;
+}
+.usercard>footer.media>a{
+	display: inline-block;
+	width: 40px;
+	line-height: 30px;
+	padding: 5px 0;
+	border-radius: 50%;
+	margin: 16px 0;
+}
+.usercard>footer.media>a:hover{
+	background: #cf5d5f;   /*鼠标移动到上面时的样式*/
+}
+.usercard svg{
+	width: 30px;
+	height: 30px;
+	color: white;
+	vertical-align: top;
+}
