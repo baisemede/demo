@@ -1,3 +1,15 @@
+@keyframes spin {        /*关键帧 加名字*/
+  from {
+    transform: rotate( 0deg );
+
+  }
+
+  to {
+    transform: rotate( 360deg );
+
+  }
+}
+
 .yinyang {
 	width: 96px;
 	height: 48px;
@@ -7,6 +19,10 @@
 	border-width: 2px 2px 50px 2px;
 	border-radius: 100%;
 	position: relative;
+	animation-timing-function: linear;  /*线性转动*/
+	animation-iteration-count: infinite;/*无限循环*/
+	animation-duration: 3s;  /*指定一个动画周期的时长，默认值为0s，表示无动画*/
+	animation-name:spin;/*调用关键帧*/
 }
 
 .yinyang:before {
@@ -32,3 +48,5 @@
 	width: 12px;
 	height: 12px;
 }
+
+

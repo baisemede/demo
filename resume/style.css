@@ -16,6 +16,15 @@ hr{
 	border: none;
 	border-top: 1px solid #dedede; 
 }
+ul,ol{
+	list-style: none;
+}
+body>main{
+	margin-top: -346px;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+}
 .margins{
 	padding: 0 16px;
 }
@@ -98,6 +107,7 @@ hr{
 	margin-left: auto;   /*自动居中*/
 	margin-right: auto;
 	background-color: #ffffff;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
 }
 .usercard .welcome{
 	background: #E6686A;
@@ -160,18 +170,162 @@ hr{
 }
 .usercard>footer.media>a{
 	display: inline-block;
-	width: 40px;
-	line-height: 30px;
-	padding: 5px 0;
+	width: 45px;
+	line-height: 21px;
+	padding: 13px 0;
 	border-radius: 50%;
-	margin: 16px 0;
+	margin: 16px 16px;
 }
 .usercard>footer.media>a:hover{
 	background: #cf5d5f;   /*鼠标移动到上面时的样式*/
 }
 .usercard svg{
-	width: 30px;
-	height: 30px;
+	width: 21px;
+	height: 21px;
 	color: white;
 	vertical-align: top;
+}
+body>main .resumepdf{
+	text-align: center;  /*居中*/
+}
+body>main .downloadpdf{
+	border: 1px solid #cdcfd1;
+	display:inline-block;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 21px 55px;
+	background: #efefef;
+	border-radius: 2px;
+	color: #3d4451;
+	font-weight: bold;
+	margin: 32px 0;
+	transition: box-shadow 0.25s; /*添加过渡效果*/
+}
+body>main .downloadpdf:hover{
+	box-shadow: 0px 5px 13px 0px rgba(0,0,0,0.36);  /*阴影效果*/
+}
+
+.Selfintroduction{
+	max-width: 940px;	/*最大像素*/
+	margin-left: auto;   /*自动居中*/
+	margin-right: auto;
+	text-align: center;
+	font-size: 20px;    
+	font-family: serif;
+}
+
+section.skills,
+section.collection{
+	max-width: 940px;	/*最大像素*/
+	margin-left: auto;   /*自动居中*/
+	margin-right: auto;
+	margin-top: 60px;
+}
+
+section.skills>h2,
+section.collection>h2{
+	text-align: center;
+	color: #3d4451;
+	font-size: 34px;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 38px;
+}
+
+section.skills h3{
+	font-size: 14px;
+	line-height: 1.1;
+	padding-right: 40px;
+}
+section.skills>ol>li{
+	float: left;
+	width: 48%;
+	box-sizing: border-box;
+}
+section.skills>ol>li:nth-child(even){   /*选中为偶数的li，进行右浮*/
+	float: right;
+}
+.skillslist{
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+	background: white;
+	padding: 42px 50px 20px;
+}
+
+section.skills .skillBar{
+	height: 3px;
+	background: #efe1e1;
+	border-radius: 2px;
+	margin: 4px 0 40px;
+
+}
+section.skills .skillBar .progressBar{
+	height: 3px;
+	background: #e6686a;
+	width: 75%;
+	border-radius: 2ps;
+}
+
+section.collection > nav{
+	text-align: center;
+}
+section.collection > nav > ol{
+	
+	margin: 0 auto;
+	display: inline-block;
+	vertical-align: top;
+}
+section.collection>nav>ol>li{
+	float: left;
+	margin-left: 40px;
+	cursor: pointer;
+}
+
+section.collection>nav>ol>li:nth-child(1){
+	margin-left: 0;
+}
+section.collection{
+	text-align: center;
+}
+section.collection>nav{
+	display: inline-block;
+	vertical-align: top;
+
+}
+section.collection>nav .bar{
+	height: 5px;
+	background: white;
+	margin-top: 10px;
+	margin-bottom: 32px;
+	border-radius: 2px;
+}
+section.collection>nav .bar-inner{
+	height: 100%;
+	background: #E6686A;
+	border-radius: 3px;
+	transition: all 0.3s; 
+}
+
+section.collection>nav .bar.state-1 .bar-inner{   /*JS样式变化*/
+	margin-left: 0;
+	width: 35px;
+}
+section.collection>nav .bar.state-2 .bar-inner{
+	margin-left: 71px;
+	width: 45px;
+}
+section.collection>nav .bar.state-3 .bar-inner{
+	margin-left:150px; 
+	width:40px;
+}
+section.collection .works{
+	position: relative;
+	margin-bottom: 140px;
+	
+	box-shadow: 0px 5px 13px 0px rgba(0,0,0,0.2);
+}
+section.collection .works>.one,
+section.collection .works>.three,
+section.collection .works>.two
+{
+	position: absolute;
 }
