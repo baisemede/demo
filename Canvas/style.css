@@ -1,0 +1,25 @@
+#canvas{
+  
+  display: block;
+}
+
+body{
+  margin: 0px;
+}
+
+.actions{
+  position: fixed;
+
+  top:  0px;
+  right: 0px;
+}
+.actions > #brush{
+  display: none;
+}
+
+.actions.x > #brush{
+  display: inline-block;
+}
+.actions.x > #eraser{
+  display: none
+}
