@@ -1,25 +1,97 @@
+ul,ol{list-style: none;}
+*{margin: 0;padding: 0;}
 #canvas{
-  
   display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
-
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.icon {
+ width: 1em; height: 1em;
+ vertical-align: -0.15em;
+ fill: currentColor;
+ overflow: hidden;
+}
 body{
-  margin: 0px;
+  overflow: hidden;
 }
 
 .actions{
-  position: fixed;
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 13px;
+}
+.actions svg{
+	width: 2em;
+	height: 2em;
+	transform: all 0.2s;
+	margin-right: 5px; 
+}
+.actions svg.active{
+	fill:blue;
+	transform: scale(1.4); 
+	
+}
+.colors{
+	position: fixed;
+	top: 17px;
+	right: 145px;
 
-  top:  0px;
-  right: 0px;
 }
-.actions > #brush{
-  display: none;
+.colors>li{
+	float: right;
+	width: 20px;
+	height: 20px;
+	margin: 0 5px;
+	border-radius: 50%;
+	transform: all 0.2s;
+}
+.colors>li.red{
+	background: red;
+}
+.colors>li.green{
+	background: green;
+}
+.colors>li.blue{
+	background: blue;
+}
+.colors>li.active{
+	transform: scale(1.4); 
 }
 
-.actions.x > #brush{
-  display: inline-block;
+.sizes{
+	position: fixed;
+	right: 102px;
+	top:51px;
 }
-.actions.x > #eraser{
-  display: none
+.sizes>.think{
+	height: 0;
+	width: 26px;
+	border: 3px solid black;
+}
+.sizes>li{
+	margin: 16px 0;
+}
+.sizes>.thicks{
+	height: 0;
+	width: 20px;
+	border: 6px solid black;
+}
+.save svg{
+	width: 3em;
+	height: 3em;
+	transform: all 0.2s;
+	margin-right: 5px; 
+}
+.save{
+	position: fixed;
+	bottom: 0px;
+	right: 0;
+	padding: 13px;
 }
