@@ -5,6 +5,7 @@ ul,ol{list-style: none;}
   position: fixed;
   top: 0;
   left: 0;
+
 }
 .clearfix::after{
     content: '';
@@ -19,6 +20,7 @@ ul,ol{list-style: none;}
 }
 body{
   overflow: hidden;
+  background: white;
 }
 
 .actions{
