@@ -3,17 +3,14 @@
 <head>
     <title>个人简历</title>
     <link rel="stylesheet"  href="style.css">
+    <link rel="stylesheet"  href="loading.css">
     <script src="//at.alicdn.com/t/font_828575_ot3xcl128oi.js"></script>
-    <style type="text/css">
-    .icon {
-       width: 1em; height: 1em;
-       vertical-align: -0.15em;
-       fill: currentColor;
-       overflow: hidden;
-    }
-    </style>
 </head>
 <body >
+    <div class="site-welcome active" id="siteWelcome"> 
+        <div class="loading"></div>
+    </div>
+    
     <div class="top-nav-bar clearfix" >
         <div class="margins">      
             <a class="logo" href="#" alt="logo">
@@ -175,6 +172,9 @@
             </div>
         </div>
     </section>
+    <script>
+       siteWelcome.classList.remove('active')
+    </script>
 </body>
 </body>
 </html>
