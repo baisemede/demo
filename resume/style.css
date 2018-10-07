@@ -6,17 +6,50 @@ ul,ol{list-style: none; }
 body>main{margin-top: -346px; }
 h1,h2,h3,h4,h5,h6{font-weight: normal; }
 .icon {width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; overflow: hidden; }
-.margins{padding: 0 16px; }
-.top-nav-bar{padding-top: 14px; padding-bottom: 14px; position: fixed; top: 0; left: 0; width: 100%; }
-.top-nav-bar nav{padding-top: 8px; }
 .clearfix::after{content: ''; display: block; clear: both; }
+.margins{padding: 0 16px; }
+.top-nav-bar{padding: 14px 0 14px 0; position: fixed; top: 0; left: 0; width: 100%;
+	transition: all 0.5s; color: #B7B7B7; }
+.top-nav-bar nav{padding-top: -2px; }
+.top-nav-bar.sticky{background: white; padding: 8px 0; z-index: 1;box-shadow: 0 0 10px rgba(0,0,0,0.25);
+	color:#3d4451;}
 .top-nav-bar nav>ul{list-style: none; margin: 0; padding: 0; }
-.top-nav-bar nav>ul>li{float: left; margin-left: 17px; margin-right: 17px; }
-.top-nav-bar nav>ul>li>a{font-size: 12px; color: #B7B7B7; font-weight: bold; border-top: 5px solid transparent;
-	border-bottom: 5px solid transparent; padding-top: 3px; padding-bottom: 3px; display: block; }
+.top-nav-bar nav>ul>li{float: left; margin-left: 17px; margin-right: 17px;position: relative; }
+.top-nav-bar nav>ul>li>a{font-size: 12px;  font-weight: bold; border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent; padding-top: 3px; padding-bottom: 3px; display: block;position: relative; }
 .top-nav-bar>a{float: left; }
 .top-nav-bar nav{float: right; }
-.top-nav-bar nav>ul>li>a:hover{border-bottom: 3px solid #e06567; }
+.top-nav-bar nav>ul>li.active>a::after{content: ''; display: block; position: absolute; top: 100%; left: 0;
+ 	width: 100%; background: #e06567; height: 3px; animation:menuSlide 0.25s; }
+@keyframes menuSlide{
+	0%{width: 0; }
+	100%{width: 100%;}
+}
+.top-nav-bar .submenu{
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 100%;
+	background: white;
+	color: #3d4451;
+	box-shadow: 0 0 8px rgba(0,0,0,0.35)
+}
+.top-nav-bar li.active>.submenu{
+	display: block;
+	animation: submenuSlide  0.3s;
+}
+@keyframes submenuSlide{
+	0%{
+		margin-right: 100%;
+	}
+	100%{
+		margin-right: 0%;
+	}
+}
+.top-nav-bar .submenu>li{
+	white-space: nowrap;
+	padding: 6px 8px;
+}
 .top-nav-bar .logo{font-size: 24px; font-family: HGSMinchoE; font-weight: bold; padding-top: 4px;
  	padding-bottom: 4px; }
 .top-nav-bar .logo .rs{margin-right: 4px; color: #E6686A; }

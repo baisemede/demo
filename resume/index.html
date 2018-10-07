@@ -11,17 +11,29 @@
         <div class="loading"></div>
     </div>
     
-    <div class="top-nav-bar clearfix" >
+    <div id="topnavbar" class="top-nav-bar clearfix" >
         <div class="margins">      
             <a class="logo" href="#" alt="logo">
             <span class="rs">RS</span><span class="card">card</span>
         </a>
-        <nav>
+        <nav class="menu ">
             <ul  class="clearfix">
-                <li ><a href="#">关于</a></li>
-                <li ><a href="#">技能</a></li>
-                <li ><a href="#">作品</a></li>
-                <li ><a href="#">博客</a></li>
+                <li ><a href="#siteAbout">关于</a></li>
+                <li ><a href="#siteSkills">技能</a></li>
+                <li ><a  href="#siteWorks">作品</a>
+                    <ul class="submenu">
+                        <li>作品一</li>
+                        <li>作品二</li>
+                        <li>作品三</li>
+                    </ul>
+                </li>
+                <li ><a href="#">博客</a>
+                    <ul class="submenu">
+                        <li>博客一</li>
+                        <li>博客二</li>
+                        <li>博客三</li>
+                    </ul>
+                </li>
                 <li ><a href="#">日历</a></li>
                 <li ><a href="#">联系方式</a></li>
                 <li ><a href="#">其他</a></li>
@@ -34,7 +46,7 @@
         <div class="mask"></div>
     </div>
     <main>
-    	<div class="usercard ">
+    	<div id="siteAbout" class="usercard ">
             <div class="all clearfix">
             <div class="picture">
                 <img src="./img/startuper-1.jpg" width="300" height="343" alt="头像">
@@ -95,7 +107,7 @@
     		猫是世界上最为广泛的宠物之一,饲养率仅次于犬.
     	</p>
     </main>
-    <section class="skills">
+    <section id="siteSkills" class="skills">
         <h2>技能</h2>
         <ol class="skillslist clearfix">
             <li>
@@ -136,7 +148,7 @@
             </li>
         </ol>
     </section>
-    <section class="collection">
+    <section id="siteWorks" class="collection">
         <h2 >作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -177,6 +189,37 @@
             siteWelcome.classList.remove('active')
         },1500)
        
+       window.onscroll=function(roll){
+        if(window.scrollY>0){
+            topnavbar.classList.add('sticky')
+        }else{
+            topnavbar.classList.remove('sticky')
+        }
+       }
+       //*****重要*****
+        let liTags=document.querySelectorAll('nav.menu>ul>li')
+        for(let i=0; i<liTags.length; i++){
+            liTags[i].onmouseenter=function(x){
+                x.currentTarget.classList.add('active')
+            }
+            liTags[i]. =function(x){
+                 x.currentTarget.classList.remove('active')
+            }
+        }
+       let aTags=document.querySelectorAll('nav.menu>ul>li>a')
+       for(let i=0; i<aTags.length; i++){
+        aTags[i].onclick=function(x){
+            x.preventDefault()
+            let a=x.currentTarget
+            let href= a.getAttribute('href')
+            let element=document.querySelector(href)
+            console.log(element.offsetTop)
+            let top=element.offsetTop
+            window.scrollTo(0,top-70)
+           // a.href  浏览器处理的
+           //debugger  断点
+        }
+       }
     </script>
 </body>
 </body>
