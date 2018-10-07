@@ -202,7 +202,7 @@
             liTags[i].onmouseenter=function(x){
                 x.currentTarget.classList.add('active')
             }
-            liTags[i]=function(x){
+            liTags[i].onmouseleave=function(x){
                  x.currentTarget.classList.remove('active')
             }
         }
@@ -213,7 +213,6 @@
             let a=x.currentTarget
             let href= a.getAttribute('href')
             let element=document.querySelector(href)
-            console.log(element.offsetTop)
             let top=element.offsetTop
             window.scrollTo(0,top-70)
            // a.href  浏览器处理的
