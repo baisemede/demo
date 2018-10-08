@@ -7,9 +7,9 @@
     <script src="//at.alicdn.com/t/font_828575_ot3xcl128oi.js"></script>
 </head>
 <body >
-    <div class="site-welcome active" id="siteWelcome"> 
+    <!--<div class="site-welcome active" id="siteWelcome"> 
         <div class="loading"></div>
-    </div>
+    </div>-->
     
     <div id="topnavbar" class="top-nav-bar clearfix" >
         <div class="margins">      
@@ -46,7 +46,7 @@
         <div class="mask"></div>
     </div>
     <main>
-    	<div id="siteAbout" class="usercard ">
+    	<div data-x id="siteAbout" class="usercard ">
             <div class="all clearfix">
             <div class="picture">
                 <img src="./img/startuper-1.jpg" width="300" height="343" alt="头像">
@@ -97,7 +97,6 @@
                         </svg>
                     </a>
                 </footer>
-
     	</div>
         <p class="resumepdf">
             <a class="downloadpdf" href="./resume.pdf" target="_blank" download="">下载PDF模板</a>
@@ -107,48 +106,48 @@
     		猫是世界上最为广泛的宠物之一,饲养率仅次于犬.
     	</p>
     </main>
-    <section id="siteSkills" class="skills">
+    <section data-x id="siteSkills" class="skills">
         <h2>技能</h2>
         <ol class="skillslist clearfix">
             <li>
                 <h3>HTML 5</h3>
                 <div class="skillBar">
-                    <div class="progressBar"></div>
+                    <div class="progressBar"  style="width:60%"></div>
                 </div>
             </li>
             <li>
                 <h3>JavaScript</h3>
                 <div class="skillBar">
-                    <div class="progressBar"></div>
+                    <div class="progressBar" style="width:30%"></div>
                 </div>
             </li>
             <li>
                 <h3>jQuery</h3>
                 <div class="skillBar">
-                    <div class="progressBar"></div>
+                    <div class="progressBar"  style="width:50%"></div>
                 </div>
             </li>
             <li>
                 <h3>Vue</h3>
                 <div class="skillBar">
-                    <div class="progressBar"></div>
+                    <div class="progressBar"  style="width:70%"></div>
                 </div>
             </li>
             <li>
                 <h3>React</h3>
                 <div class="skillBar">
-                    <div class="progressBar"></div>
+                    <div class="progressBar"  style="width:20%"></div>
                 </div>
             </li>
             <li>
                 <h3>HTTP</h3>
                 <div class="skillBar">
-                    <div class="progressBar"></div>
+                    <div class="progressBar"  style="width:90%"></div>
                 </div>
             </li>
         </ol>
     </section>
-    <section id="siteWorks" class="collection">
+    <section data-x id="siteWorks" class="collection">
         <h2 >作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -184,18 +183,48 @@
             </div>
         </div>
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
     <script>
-        setTimeout(function(){
+        /*setTimeout(function(){
             siteWelcome.classList.remove('active')
-        },1500)
-       
-       window.onscroll=function(roll){
-        if(window.scrollY>0){
-            topnavbar.classList.add('sticky')
-        }else{
-            topnavbar.classList.remove('sticky')
+        },99)*/
+       //
+        let specialTags=document.querySelectorAll('[data-x]')
+            for(let i=0; i<specialTags.length; i++){
+                specialTags[i].classList.add('offset')           
+            }
+
+       //
+        menustate()
+        window.onscroll=function(roll){
+            if(window.scrollY>0){
+                topnavbar.classList.add('sticky')
+            }else{
+                topnavbar.classList.remove('sticky')
+            }
+            menustate()
         }
-       }
+        function menustate(){
+            //高亮当前元素
+            let specialTags=document.querySelectorAll('[data-x]')
+            let minIndex=0
+            for(let i=1; i<specialTags.length; i++){
+            if(Math.abs(specialTags[i].offsetTop-window.scrollY)<Math.abs(specialTags[minIndex].offsetTop-window.scrollY)){
+                minIndex=i
+                }
+            }
+            specialTags[minIndex].classList.remove('offset')
+            let id=specialTags[minIndex].id
+            let a=document.querySelector('a[href="#'+id+'"]')
+            let li=a.parentNode
+            let brothersAndme=li.parentNode.children
+            for(let i=0; i<brothersAndme.length; i++){
+            brothersAndme[i].classList.remove('highlight')
+           }
+            li.classList.add('highlight')
+        }
+     
        //*****重要*****
         let liTags=document.querySelectorAll('nav.menu>ul>li')
         for(let i=0; i<liTags.length; i++){
@@ -206,19 +235,40 @@
                  x.currentTarget.classList.remove('active')
             }
         }
-       let aTags=document.querySelectorAll('nav.menu>ul>li>a')
-       for(let i=0; i<aTags.length; i++){
-        aTags[i].onclick=function(x){
-            x.preventDefault()
-            let a=x.currentTarget
-            let href= a.getAttribute('href')
-            let element=document.querySelector(href)
-            let top=element.offsetTop
-            window.scrollTo(0,top-70)
-           // a.href  浏览器处理的
-           //debugger  断点
+
+        let aTags=document.querySelectorAll('nav.menu>ul>li>a')
+
+        function animate(time) {
+        requestAnimationFrame(animate);
+        TWEEN.update(time);
         }
-       }
+        requestAnimationFrame(animate);
+
+       
+        for(let i=0; i<aTags.length; i++){
+            aTags[i].onclick=function(x){
+                x.preventDefault()
+                let a=x.currentTarget
+                let href= a.getAttribute('href')
+                let element=document.querySelector(href)
+                let top=element.offsetTop
+                //跳转缓慢滚动效果,tween 缓动函数
+
+                let currentTop=window.scrollY
+                let targetTop=top-80
+                let distance=targetTop-currentTop
+                var t=Math.abs((distance/100)*300)//取时间绝对值
+                if(t>500){t=500}
+                var coords = { y: currentTop}; //初始位置
+                var tween = new TWEEN.Tween(coords)
+                    .to({y: targetTop},t)  //结束位置和时间
+                    .easing(TWEEN.Easing.Quadratic.InOut)
+                    .onUpdate(function() {
+                        window.scrollTo(0,coords.y)
+                    })
+                    .start();
+            }
+        }
     </script>
 </body>
 </body>

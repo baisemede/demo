@@ -19,11 +19,20 @@ h1,h2,h3,h4,h5,h6{font-weight: normal; }
 	border-bottom: 5px solid transparent; padding-top: 3px; padding-bottom: 3px; display: block;position: relative; }
 .top-nav-bar>a{float: left; }
 .top-nav-bar nav{float: right; }
-.top-nav-bar nav>ul>li.active>a::after{content: ''; display: block; position: absolute; top: 100%; left: 0;
+.top-nav-bar nav>ul>li.active>a::after,
+.top-nav-bar nav>ul>li.highlight>a::after
+{content: ''; display: block; position: absolute; top: 100%; left: 0;
  	width: 100%; background: #e06567; height: 3px; animation:menuSlide 0.25s; }
 @keyframes menuSlide{
 	0%{width: 0; }
 	100%{width: 100%;}
+}
+[data-x].offset{
+	transform: translateY(85px);
+}
+[data-x]{
+	transform: translateY(0);
+	transition: all 0.5s; 
 }
 .top-nav-bar .submenu{
 	display: none;
@@ -94,8 +103,13 @@ section.skills h3{font-size: 14px; line-height: 1.1; padding-right: 40px; }
 section.skills>ol>li{float: left; width: 48%; box-sizing: border-box; }
 section.skills>ol>li:nth-child(even){   float: right; } /*选中为偶数的li，进行右浮*/
 .skillslist{box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2); background: white; padding: 42px 50px 20px; }
-section.skills .skillBar{height: 3px; background: #efe1e1; border-radius: 2px; margin: 4px 0 40px; }
-section.skills .skillBar .progressBar{height: 3px; background: #e6686a; width: 75%; border-radius: 2ps; }
+section.skills .skillBar{height: 3px; background: #efe1e1; border-radius: 2px; margin: 4px 0 40px; 
+	overflow: hidden;}
+section.skills .skillBar .progressBar{height: 3px; background: #e6686a; width: 75%; border-radius: 2ps; 
+	transform: translateX(0); transition: all 0.8s;}
+section.skills.offset .progressBar{
+	transform: translateX(-100%);
+}
 section.collection > nav{text-align: center; }
 section.collection > nav > ol{margin: 0 auto; display: inline-block; vertical-align: top; }
 section.collection>nav>ol>li{float: left; margin-left: 40px; cursor: pointer; }
