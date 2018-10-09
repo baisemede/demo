@@ -1,72 +1,88 @@
-*{margin:0; padding: 0;}
-a{text-decoration:none;}
-kbd{border: 1px solid red;width: 6px;
- 	height: 6px; display: inline-block; 
- 	text-transform: uppercase;
-	position: relative;
+* {
+    margin:0;
+    padding: 0;
 }
-kbd>button{
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	display: none;
+a {
+    text-decoration:none;
 }
-kbd:hover>button{
-	display: inline-block;
+kbd {
+    border: 1px solid red;
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    text-transform: uppercase;
+    position: relative;
 }
-body{
-	background: grey url(./wall.jpg) no-repeat center center
-	/*ckground-size:cover;*/
+kbd>button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
 }
-main{
-	height: 100vh;/*屏幕的高度*/
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+kbd:hover>button {
+    display: inline-block;
 }
-#rng{
-	display: inline-block;
+body {
+    background: grey url(./wall.jpg) no-repeat center center
+    /*ckground-size:cover;*/
 }
-
-#rng>div:nth-child(2){
-	margin-left: -22px;
+main {
+    height: 100vh;
+    /*屏幕的高度*/
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-#rng>div:nth-child(3){
-	margin-left: -88px;
+#rng {
+    display: inline-block;
 }
-.key{
-	width:50px;  /*宽度为50像素*/
-	height: 40px; /*高度为40像素*/
-	background: linear-gradient(to bottom, #292929 0%,#111111 100%);  /*背景的渐变色*/
-	border: 1px solid #373737;  /*第一次边框*/
-	color: #c5c5c5; /*字体颜色*/
-	border-radius: 6px; /*圆角像素*/
-	box-shadow: 0 0 0 1px #1a1b1c,0 0 0 2px #1f2020,0 3px 0 2px #080808; /*box三层*/
-	font-size: 16px; /*字体大小*/
-	font-family: Helvetica;/*字体*/
-	position: relative;
-
+#rng>div:nth-child(2) {
+    margin-left: -22px;
 }
-.wrapper{
-	background: rgba(255,255,255,0.3);
-	border-radius: 10px;
+#rng>div:nth-child(3) {
+    margin-left: -88px;
 }
-.row{
-	margin: 20px; 
+.key {
+    width:50px;
+    /*宽度为50像素*/
+    height: 40px;
+    /*高度为40像素*/
+    background: linear-gradient(to bottom, #292929 0%, #111111 100%);
+    /*背景的渐变色*/
+    border: 1px solid #373737;
+    /*第一次边框*/
+    color: #c5c5c5;
+    /*字体颜色*/
+    border-radius: 6px;
+    /*圆角像素*/
+    box-shadow: 0 0 0 1px #1a1b1c, 0 0 0 2px #1f2020, 0 3px 0 2px #080808;
+    /*box三层*/
+    font-size: 16px;
+    /*字体大小*/
+    font-family: Helvetica;
+    /*字体*/
+    position: relative;
 }
-.row .key{
-	margin: 0 8px;
+.wrapper {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
 }
-.key img{
-	width: :14px;
-	height: 14px;
-	position: absolute;
-	left: 4px;
-	bottom: 1px;
+.row {
+    margin: 20px;
 }
-.key .text{
-	position: absolute;
-	left: 4px;
-	top: 1px;
+.row .key {
+    margin: 0 8px;
+}
+.key img {
+    width: :14px;
+    height: 14px;
+    position: absolute;
+    left: 4px;
+    bottom: 1px;
+}
+.key .text {
+    position: absolute;
+    left: 4px;
+    top: 1px;
 }
