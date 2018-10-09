@@ -87,7 +87,7 @@ function autoSetCanvasSize(canvas, context) {
 
         canvas.width = pageWidth
         canvas.height = pageHeight
-        context.fillStyle = '#fff'
+        context.fillStyle = 'white'
         context.fillRect(0, 0, pageWidth, pageHeight)
     }
 }
@@ -123,8 +123,8 @@ function listenToUser(canvas) {
             var x = point.touches[0].clientX //获取坐标
             var y = point.touches[0].clientY //获取坐标
             using = true
-            if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, 20, 20)
+            if (eraserEnabled) {                
+                context.fillRect(x - 5, y - 5, 20, 20);
             } else {
                 lastPoint = {
                     "x": x,
@@ -142,7 +142,7 @@ function listenToUser(canvas) {
             } //为false，直接返回
 
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, 20, 20)
+                context.fillRect(x - 5, y - 5, 20, 20);
             } else {
                 var newPoint = {
                     "x": x,
@@ -163,7 +163,7 @@ function listenToUser(canvas) {
             var y = point.clientY //获取坐标
             using = true
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, 20, 20)
+                context.fillRect(x - 5, y - 5, 20, 20);
             } else {
                 lastPoint = {
                     "x": x,
@@ -181,7 +181,7 @@ function listenToUser(canvas) {
             } //为false，直接返回
 
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, 20, 20)
+                context.fillRect(x - 5, y - 5, 20, 20);
             } else {
                 var newPoint = {
                     "x": x,

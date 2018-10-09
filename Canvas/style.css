@@ -25,7 +25,7 @@ ul, ol {
 }
 body {
     overflow: hidden;
-    background: white;
+    background: grey;
 }
 .actions {
     position: fixed;
