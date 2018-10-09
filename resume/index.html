@@ -176,6 +176,17 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
     <script>
+        collectionAll.onclick=function(){
+            collectionBar.className="bar state-1"
+        }
+        collectionFrame.onclick=function(){
+            collectionBar.className="bar state-2"
+        }
+        collectionJs.onclick=function(){
+            collectionBar.className="bar state-3"
+        }
+    </script>
+    <script>
         /*setTimeout(function(){
             siteWelcome.classList.remove('active')
         },99)*/
@@ -233,7 +244,6 @@
         TWEEN.update(time);
         }
         requestAnimationFrame(animate);
-
        
         for(let i=0; i<aTags.length; i++){
             aTags[i].onclick=function(x){
@@ -242,8 +252,8 @@
                 let href= a.getAttribute('href')
                 let element=document.querySelector(href)
                 let top=element.offsetTop
-                //跳转缓慢滚动效果,tween 缓动函数
 
+                //跳转缓慢滚动效果,tween 缓动函数
                 let currentTop=window.scrollY
                 let targetTop=top-80
                 let distance=targetTop-currentTop
