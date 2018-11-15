@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>美化按钮</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<button id='but' class='but'>按钮
+		<span class="circle"></span>
+	</button>
+
+	<script type="text/javascript">
+		 but.onclick=function(){
+		 	but.querySelector('.circle')
+		 	.classList.add('active')
+		 }
+
+		 but.querySelector('.circle').addEventListener('transitionend',
+		 	function(){
+		 		but.querySelector('.circle').classList.remove('active')
+		 	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+*{margin: 0;padding: 0;}
+*{box-sizing: border-box;}
+*::before,*::after{box-sizing: border-box;}
+ul,ol{list-style: none;}  /*消除下划线*/
+
+body{
+	border:1px solid red;
+	min-height: 100vh;  /*最小高度为视窗高度*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.icon{
+   width:1em; height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
+.wrapper{
+	display: flex;
+	position: relative;
+}
+.suggestions{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	display: none;
+}
+.suggestions.active{
+	display: block;
+}
+.inputWrapper input[type=text]{
+	border: 1px solid rgb(184 184 184);
+	width: 540px;
+	height: 36px;
+	padding-left: 8px;
+	font-size: 16px; 
+	line-height: 36px;
+}
+.inputWrapper input[type=text]:focus{
+	outline: none;
+	border-color: rgb(71 145 255);
+}
+.inputWrapper{
+	position: relative;
+	float: left;
+}
+.inputWrapper+button{float: left;}
+.inputWrapper+button{
+	background: #3385ff;
+	border-bottom:1px solid #2d78f4; 
+	border: none;
+	width: 100px;
+	color: white;
+	font-size: 16px;
+}
+.inputWrapper+button:focus{
+	outline: none;
+}
+.inputWrapper+button:hover{
+	background: #317ef3;
+	border-bottom:1px solid #2868c8;
+	box-shadow: 1px 1px 1px #ccc;
+	cursor: pointer;
+}
+
+.floatDiv{
+	position: absolute;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	right: 0;
+	top: 0;
+}
+
+.floatDiv >svg.icon{
+	width:1.5em; height: 1.7em;
+	margin-right: 9px;
+	fill: rgb(184 184 184);
+}
+.floatDiv >svg.icon:hover{
+	cursor: pointer;
+	fill: rgb(71 145 255);;
+}
+
