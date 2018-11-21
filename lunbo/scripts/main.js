@@ -12,6 +12,14 @@ for(let i=0;i<allButtons.length;i++){
 	})
 }
 
+document.addEventListener('visibilitychange',function(e){
+	if(document.hidden){
+		window.clearInterval(timeId)
+	}else{
+		timeId=setTimer()
+	}
+})
+
 /*自动轮播*/
 var n=0
 var max=allButtons.length
