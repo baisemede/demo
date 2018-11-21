@@ -1,10 +1,10 @@
-var allButtons=$('#buttons>span')
+var allButtons=$('#buttons>ul>li')
 
 
 for(let i=0;i<allButtons.length;i++){
 	$(allButtons[i]).on('click',function(Whichbutton){
 		var index=$(Whichbutton.currentTarget).index()  //返回一个数字，表示这个元素在父元素是第几位
-		var px=index*-500
+		var px=index*-920
 		$('#images').css('transform','translateX('+px+'px)') //
 
 		n=index
@@ -30,9 +30,12 @@ $('.window').on('mouseleave',function(){
 
 /*封装函数*/
 function autoclass($button){
-	$button.addClass('spancolor')
-	.siblings('.spancolor')
-	.removeClass('spancolor')
+	$button.addClass('active act')
+	.siblings('.active ')
+	.removeClass('active act')
+	$('.tri').hover(function(e){
+		e.stopPropagation();
+	})
 }
 
 function playSlide(index){
@@ -46,28 +49,3 @@ function setTimer(){
 	},3000)
 }
 
-/*$('#p1').on('click',function(){
-	$('#images').css(
-		'transform','translateX(0)'
-	)
-})
-$('#p2').on('click',function(){
-	$('#images').css(
-		'transform','translateX(-500px)'
-	)
-})
-$('#p3').on('click',function(){
-	$('#images').css(
-		'transform','translateX(-1000px)'
-	)
-})
-$('#p4').on('click',function(){
-	$('#images').css(
-		'transform','translateX(-1500px)'
-	)
-})
-$('#p5').on('click',function(){
-	$('#images').css(
-		'transform','translateX(-2000px)'
-	)
-})*/

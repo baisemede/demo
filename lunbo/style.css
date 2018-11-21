@@ -1,26 +1,74 @@
+body{
+	background: #f2f2f2;
+}
 .images{
 	display: flex;
 	align-items: flex-start;
 	transition: transform 0.5s;
+	max-width: 920px;
+	height: 400px;
+	
 }
 .images>img{
 
 }
 .window{
-	border: 2px solid blue;
-	max-width: 500px;
-	height: 282px;
+	box-shadow: 0 0 3px #AAAAAA;
+	border: 1px solid white;
 	overflow: hidden;
+	width: 920px;
 	margin: 0 auto; /*水平居中*/
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius:  10px;
 }
+
 .trigger{
-	margin-top: 8px;
-	text-align: center;	
+	text-align: center;
+	
+	height: 45px;
+	margin-top: 2px;
+
+	background: rgb(241,241,241);
 }
-.spancolor{
-	color: #EE85B5
+.active{
+	 background: rgb(200,200,200);
 }
-span:hover{
-	 color: blue;
+.inact:hover{
+	 background: rgb(248,248,248);
 	 cursor:pointer;
 }
+.act:hover{
+	background: rgb(200,200,200);
+}
+.btu{
+    margin: 0px;
+	position: relative;
+    padding: 0px;
+	display: flex;
+	justify-content: center;
+    height: 45px;
+}
+li{
+	border-left:1.5px solid rgb(214,214,214); 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    width: 60px;
+    height: 45px;
+    list-style: none;
+}
+li:last-child{
+	border-right:1.5px solid rgb(214,214,214); 
+} 
+.act:before{
+	content: "";
+    position: absolute;
+    margin-top: -13px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid white;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+}
+
