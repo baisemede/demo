@@ -2,9 +2,12 @@
 <html lang="en">
     <head>
         <title>个人简历</title>
-        <link rel="stylesheet" href="style.css">
+        
         <link rel="stylesheet" href="loading.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css">
         <script src="//at.alicdn.com/t/font_828575_ot3xcl128oi.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
     <!--<div class="site-welcome active" id="siteWelcome"> 
@@ -151,7 +154,7 @@
 </section>
 <section data-x id="siteWorks" class="collection">
      <h2>作品集</h2>
-    <nav>
+   <!-- <nav>
         <ol class="clearfix">
             <li id="collectionAll">所有</li>
             <li id="collectionFrame">框架</li>
@@ -160,8 +163,9 @@
         <div id="collectionBar" class="bar state-1">
             <div class="bar-inner"></div>
         </div>
-    </nav>
-    <div class="works" style="height: 576px">
+    </nav>-->
+    <!-- 变成轮播 -->
+    <!--<div class="works" style="height: 576px">
         <div class="one" style="top: 0; left: 0">
             <img src="./img/photo-1.jpg" alt="作品1">
         </div>
@@ -171,104 +175,41 @@
         <div class="three" style="top: 298px; left: 646px">
             <img src="./img/photo.jpg" alt="作品3">
         </div>
+    </div>-->
+
+    <div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <img src="./img/works/ca.png" class="swiper-slide" alt="作品1">
+        <img src="./img/works/c.jpg" class="swiper-slide" alt="作品2">
+        <img src="./img/works/nav.png" class="swiper-slide" alt="作品3">
     </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+</div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</section>
+<!-- Slider main container -->
+<section class="message">
+    <h2>留言</h2>
+    <ol id='messageList'></ol>
+    <form id="commentsForm" style="width: 700px; margin: 50px auto">
+        <label>姓名</label>
+        <input type="text" name="name">
+        <label>内容</label>
+        <input type="text" name="content">
+        <input type="submit" name="提交">
+    </form>
 </section>
 
+
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
-    <script>
-        collectionAll.onclick=function(){
-            collectionBar.className="bar state-1"
-        }
-        collectionFrame.onclick=function(){
-            collectionBar.className="bar state-2"
-        }
-        collectionJs.onclick=function(){
-            collectionBar.className="bar state-3"
-        }
-    </script>
-    <script>
-        /*setTimeout(function(){
-            siteWelcome.classList.remove('active')
-        },99)*/
-       //
-        let specialTags=document.querySelectorAll('[data-x]')
-            for(let i=0; i<specialTags.length; i++){
-                specialTags[i].classList.add('offset')           
-            }
+    <script type="text/javascript" src="./main.js"></script>
 
-       //
-        menustate()
-        window.onscroll=function(roll){
-            if(window.scrollY>0){
-                topnavbar.classList.add('sticky')
-            }else{
-                topnavbar.classList.remove('sticky')
-            }
-            menustate()
-        }
-        function menustate(){
-            //高亮当前元素
-            let specialTags=document.querySelectorAll('[data-x]')
-            let minIndex=0
-            for(let i=1; i<specialTags.length; i++){
-            if(Math.abs(specialTags[i].offsetTop-window.scrollY)<Math.abs(specialTags[minIndex].offsetTop-window.scrollY)){
-                minIndex=i
-                }
-            }
-            specialTags[minIndex].classList.remove('offset')
-            let id=specialTags[minIndex].id
-            let a=document.querySelector('a[href="#'+id+'"]')
-            let li=a.parentNode
-            let brothersAndme=li.parentNode.children
-            for(let i=0; i<brothersAndme.length; i++){
-            brothersAndme[i].classList.remove('highlight')
-           }
-            li.classList.add('highlight')
-        }
-     
-       //*****重要*****
-        let liTags=document.querySelectorAll('nav.menu>ul>li')
-        for(let i=0; i<liTags.length; i++){
-            liTags[i].onmouseenter=function(x){
-                x.currentTarget.classList.add('active')
-            }
-            liTags[i].onmouseleave=function(x){
-                 x.currentTarget.classList.remove('active')
-            }
-        }
-
-        let aTags=document.querySelectorAll('nav.menu>ul>li>a')
-
-        function animate(time) {
-        requestAnimationFrame(animate);
-        TWEEN.update(time);
-        }
-        requestAnimationFrame(animate);
-       
-        for(let i=0; i<aTags.length; i++){
-            aTags[i].onclick=function(x){
-                x.preventDefault()
-                let a=x.currentTarget
-                let href= a.getAttribute('href')
-                let element=document.querySelector(href)
-                let top=element.offsetTop
-
-                //跳转缓慢滚动效果,tween 缓动函数
-                let currentTop=window.scrollY
-                let targetTop=top-80
-                let distance=targetTop-currentTop
-                var t=Math.abs((distance/100)*300)//取时间绝对值
-                if(t>500){t=500}
-                var coords = { y: currentTop}; //初始位置
-                var tween = new TWEEN.Tween(coords)
-                    .to({y: targetTop},t)  //结束位置和时间
-                    .easing(TWEEN.Easing.Quadratic.InOut)
-                    .onUpdate(function() {
-                        window.scrollTo(0,coords.y)
-                    })
-                    .start();
-            }
-        }
-    </script>
 </body>
 </html>

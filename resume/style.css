@@ -284,8 +284,9 @@ section.skills, section.collection {
     /*自动居中*/
     margin-right: auto;
     margin-top: 60px;
+    margin-bottom: 100px;
 }
-section.skills>h2, section.collection>h2 {
+section.skills>h2, section.collection>h2,section.message >h2{
     text-align: center;
     color: #3d4451;
     font-size: 34px;
@@ -330,6 +331,37 @@ section.skills .skillBar .progressBar {
 section.skills.offset .progressBar {
     transform: translateX(-100%);
 }
+
+.swiper-container {
+    width: 668px;
+    height: 501px;
+}
+.swiper-button-prev,.swiper-button-next{
+    background-color: white;
+    width: 64px;
+    height: 64px;
+    border-radius: 25%;
+    right: 88%;
+    left: auto;
+    top: 56%;
+}
+.swiper-button-next{
+    left: 88%;
+    right: auto;
+}
+
+section.message>ol{
+    border-top: 1px solid #FCFAFA;
+    background: #EEE9EF;
+    max-width: 720px;
+    margin:0 auto;
+}
+
+section.message>ol>li{
+    padding: 16px;
+    border-bottom: 1px solid #FCFAFA;
+}
+/*
 section.collection > nav {
     text-align: center;
 }
@@ -366,20 +398,20 @@ section.collection>nav .bar-inner {
     border-radius: 3px;
     transition: all 0.3s;
 }
+
 section.collection>nav .bar.state-1 .bar-inner {
     margin-left: 0;
-    width: 35px;
+    width: 40px;
 }
-/*JS样式变化*/
  section.collection>nav .bar.state-2 .bar-inner {
     margin-left: 71px;
-    width: 45px;
+    width: 50px;
 }
 section.collection>nav .bar.state-3 .bar-inner {
-    margin-left:150px;
-    width:40px;
-}
-section.collection .works {
+    margin-left:131px;
+    width:60px;
+}*/
+/*section.collection .works {
     position: relative;
     margin-bottom: 140px;
     box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.2);
@@ -387,3 +419,4 @@ section.collection .works {
 section.collection .works>.one, section.collection .works>.three, section.collection .works>.two {
     position: absolute;
 }
+*/
