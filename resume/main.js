@@ -118,6 +118,7 @@ var mySwiper = new Swiper ('.swiper-container', {
   })
 //
 
+
 //message   数据库
 var APP_ID = 'z5ytNfRledisxDASCjjsyBIm-gzGzoHsz';
 var APP_KEY = 'BGAEEr17cCKBsrTj7TUGOiAt';
@@ -136,9 +137,10 @@ query.find()
             let li=document.createElement('li')
             li.innerText=`${item.name}: ${item.content}`
             let messageList=document.querySelector('#messageList')
-            messageList.appendChild(li)         
+            messageList.appendChild(li)                 
         })
     })
+
 
 
 let myForm=document.querySelector('#commentsForm')
@@ -149,24 +151,19 @@ myForm.addEventListener('submit',function(e){
     let name= myForm.querySelector('input[name=name]').value
     var Message = AV.Object.extend('Message');
     var message = new Message();
-    message.save({
-        'name':name,
-        'content': content        
-    }).then(function(object) {
-        let li=document.createElement('li')
-        li.innerText=`${object.attributes.name}: ${object.attributes.content}`
-        let messageList=document.querySelector('#messageList')
-        messageList.appendChild(li)
-        myForm.querySelector('input[name=content]').value=''
-        console.log(sss)
-    })
+    if(name && content){
+        message.save({
+            'name':name,
+            'content': content        
+        }).then(function(object) {
+            let li=document.createElement('li')
+            li.innerText=`${object.attributes.name}: ${object.attributes.content}`
+            let messageList=document.querySelector('#messageList')
+            messageList.appendChild(li)
+            myForm.querySelector('input[name=content]').value
+            })
+    }else{
+        alert('提交失败,请输入姓名和内容.')
+    }
 })
 
-/*
-var TestObject = AV.Object.extend('TestObject');
-var testObject = new TestObject();
-testObject.save({
-  words: 'Hello World!'
-}).then(function(object) {
-  alert('LeanCloud Rocks!');
-})*/
