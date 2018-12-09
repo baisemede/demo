@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+*::before{
+    box-sizing: border-box;
+}
+*::after{
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.code-kirby{
+    flex: 1;
+    height: 50%;
+    padding: 16px;
+}
+.preview-kirby{
+    flex:1;
+    height: 50%;
+}
+#code{
+    overflow: hidden;
+    height: 100%;
+}
+.actions{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+.actions>button{
+    margin: 10px;
+    border: none;
+    background: #ddd;
+}
+.actions>button.active{
+    box-shadow:1px 1px 1px rgba(0,0,0,0.8);
+}
+.actions>button:focus{
+    outline: none;
+}
+
