@@ -35,9 +35,9 @@
     }
     
     let code=`
-    /*
-    *我来画一个卡比
-    */
+/*
+*我来画一个卡比
+*/
 .preview{
     border:1px solid green;
     min-height: 100%;
