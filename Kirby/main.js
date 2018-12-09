@@ -39,7 +39,7 @@
 *我来画一个卡比
 */
 .preview{
-    border:1px solid green;
+    border:1px solid #eda8b6;
     min-height: 100%;
     display: flex;
     justify-content: center;
