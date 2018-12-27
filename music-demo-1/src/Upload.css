@@ -1,9 +1,0 @@
-#upload{
-    width: 250px;
-    height: 170px;
-    border-style:dotted ;
-    display: flex;
-    border-radius: 8%;
-    align-items: center;
-    justify-content: center;
-}
