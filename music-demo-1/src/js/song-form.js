@@ -51,7 +51,7 @@
         },
         create(data) {
             // 声明类型
-            var song = AV.Object.extend('song');
+            var song = AV.Object.extend('Song');
             // 新建对象
             var song = new song();
             // 设置名称
