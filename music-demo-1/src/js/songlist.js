@@ -1,3 +1,5 @@
+
+
 {
     let view = {
         el: '.songList-container',
@@ -78,6 +80,15 @@
             })
             window.eventHub.on('new',()=>{
                 this.view.clearActive()
+            })
+            window.eventHub.on('updata',(song)=>{
+                let songs=this.model.data.songs
+                for(let i=0; i<songs.length; i++){
+                    if(songs[i].id===song.id){
+                        Object.assign(songs[i],song)
+                    }
+                }
+                this.view.render(this.model.data)
             })
         }
     }

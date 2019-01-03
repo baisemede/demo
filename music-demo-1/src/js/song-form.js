@@ -30,19 +30,19 @@
         </form>
         `,
         render(data = {}) {
-            let placeholders = ['name','singer','url', 'id']
+            let placeholders = ['name', 'singer', 'url', 'id']
             let html = this.template
             placeholders.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '')
             })
             $(this.el).html(html)
-            if(data.id){
+            if (data.id) {
                 $(this.el).prepend('<h1>编辑歌曲</h1>')
-            }else{
+            } else {
                 $(this.el).prepend('<h1>新建歌曲</h1>')
             }
         },
-        reset(){
+        reset() {
             this.render({})
         }
     }
@@ -50,8 +50,21 @@
         data: {
             name: '',
             singer: '',
-            url: '', 
-            id:''
+            url: '',
+            id: ''
+        },
+        updata(data){
+            // 第一个参数是 className，第二个参数是 objectId
+            var song = AV.Object.createWithoutData('Song', this.data.id);
+            // 修改属性
+            song.set('name',data.name);
+            song.set('url',data.url)
+            song.set('singer',data.singer)
+            // 保存到云端
+            return song.save().then((response)=>{
+                Object.assign(this.data,data)
+                return response
+            })
         },
         create(data) {
             // 声明类型
@@ -63,13 +76,16 @@
             song.set('name', data.name);
             song.set('url', data.url);
             // 设置优先级
-            return song.save().then ((newSong)=>{
-                let {id,attributes}=newSong
-                Object.assign(this.data,{
+            return song.save().then((newSong) => {
+                let {
+                    id,
+                    attributes
+                } = newSong
+                Object.assign(this.data, {
                     id,
                     ...attributes
                 })
-            }, (error)=>{
+            }, (error) => {
                 console.error(error);
             });
         }
@@ -81,36 +97,57 @@
             this.model = model
             this.view.render(this.model.data)
             this.bindEvents()
-            window.eventHub.on('select',(data)=>{
-                this.model.data=data
+            window.eventHub.on('select', (data) => {
+                this.model.data = data
                 this.view.render(this.model.data)
             })
-            window.eventHub.on('new',(data)=>{
-                if(this.model.data.id){
-                    this.model.data={
-                        name:'', url:'', id:'', singer:''
+            window.eventHub.on('new', (data) => {
+                if (this.model.data.id) {
+                    this.model.data = {
+                        name: '',
+                        url: '',
+                        id: '',
+                        singer: ''
                     }
-                }else{
-                    Object.assign(this.model.data,data)
+                } else {
+                    Object.assign(this.model.data, data)
                 }
                 this.view.render(this.model.data)
+            })
+        },
+        save() {
+            let needs = 'name singer url'.split(' ')
+            let data = {}
+            needs.map((string) => {
+                data[string] = this.view.$el.find(`[name="${string}"]`).val()
+            })
+            this.model.create(data)
+                .then(() => {
+                    this.view.reset()
+                    let string = JSON.stringify(this.model.data)
+                    let object = JSON.parse(string)
+                    window.eventHub.emit('create', object)
+                })
+        },
+        updata() {
+            let needs = 'name singer url'.split(' ')
+            let data = {}
+            needs.map((string) => {
+                data[string] = this.view.$el.find(`[name="${string}"]`).val()
+            })
+            this.model.updata(data).then(()=>{
+                window.eventHub.emit('updata',JSON.parse(JSON.stringify(this.model.data)) )
             })
         },
         bindEvents() {
             this.view.$el.on('submit', 'form', (e) => {
                 e.preventDefault()
-                let needs = 'name singer url'.split(' ')
-                let data = {}
-                needs.map((string) => {
-                    data[string] = this.view.$el.find(`[name="${string}"]`).val()
-                })
-                this.model.create(data)
-                    .then(()=>{
-                        this.view.reset()
-                        let string=JSON.stringify(this.model.data)
-                        let object=JSON.parse(string)
-                        window.eventHub.emit('create',object)
-                    })
+
+                if (this.model.data.id) {
+                    this.updata()
+                } else {
+                    this.save()
+                }
             })
         }
     }
