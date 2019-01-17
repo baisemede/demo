@@ -58,10 +58,7 @@
             this.view.init()
             this.model = model
             this.model.find().then(() => {
-
-                console.log('1')
                 this.view.render(this.model.data)
-                console.log('2')
             })
         }
     }
