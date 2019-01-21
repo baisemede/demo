@@ -30,13 +30,19 @@
             </label>
             <input name='cover' type="text" value="__cover__">
         </div>
+        <div class="row">
+            <label>
+                歌词
+            </label>
+            <textarea cols=100  rows=10 name='lyrics'>__lyrics__</textarea>
+        </div>
             <div class="row actions">
                 <button type="submit">保存</button>
             </div>
         </form>
         `,
         render(data = {}) {
-            let placeholders = ['name', 'singer', 'url', 'id','cover']
+            let placeholders = ['name', 'singer', 'url', 'id','cover','lyrics']
             let html = this.template
             placeholders.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '')
@@ -58,7 +64,8 @@
             singer: '',
             url: '',
             id: '',
-            cover:''
+            cover:'',
+            lyrics:''
         },
         updata(data){
             // 第一个参数是 className，第二个参数是 objectId
@@ -68,6 +75,7 @@
             song.set('url',data.url)
             song.set('singer',data.singer)
             song.set('cover',data.cover)
+            song.set('lyrics',data.lyrics)
             // 保存到云端
             return song.save().then((response)=>{
                 Object.assign(this.data,data)
@@ -84,6 +92,7 @@
             song.set('name', data.name);
             song.set('url', data.url);
             song.set('cover', data.cover);
+            song.set('lyrics', data.lyrics);
             // 设置优先级
             return song.save().then((newSong) => {
                 let {
@@ -116,7 +125,9 @@
                         name: '',
                         url: '',
                         id: '',
-                        singer: ''
+                        singer: '',
+                        cover:'',
+                        lyrics:''
                     }
                 } else {
                     Object.assign(this.model.data, data)
@@ -125,7 +136,7 @@
             })
         },
         save() {
-            let needs = 'name singer url cover'.split(' ')
+            let needs = 'name singer url cover lyrics'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
@@ -139,7 +150,7 @@
                 })
         },
         updata() {
-            let needs = 'name singer url cover'.split(' ')
+            let needs = 'name singer url cover lyrics'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
