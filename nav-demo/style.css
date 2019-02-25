@@ -39,7 +39,7 @@ kbd>button {
     right: 0;
     bottom: 0;
     display: none;
-
+    border-bottom-right-radius: 8px;
     background: #57bae8;
     border: none;
     color: #fbfbfb;
