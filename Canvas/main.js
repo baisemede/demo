@@ -1,4 +1,3 @@
-
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
@@ -47,6 +46,8 @@ thick.onclick = function () {
 //刷新操作
 refresh.onclick = function () {
     context.clearRect(0, 0, canvas.width, canvas.height)
+    autoSetCanvasSize(canvas, context)
+
 }
 //下载操作
 download.onclick = function () {
@@ -87,7 +88,7 @@ function autoSetCanvasSize(canvas, context) {
 
         canvas.width = pageWidth
         canvas.height = pageHeight
-        context.fillStyle = 'white'
+        context.fillStyle = "white"
         context.fillRect(0, 0, pageWidth, pageHeight)
     }
 }
@@ -123,7 +124,7 @@ function listenToUser(canvas) {
             var x = point.touches[0].clientX //获取坐标
             var y = point.touches[0].clientY //获取坐标
             using = true
-            if (eraserEnabled) {                
+            if (eraserEnabled) {
                 context.fillRect(x - 5, y - 5, 20, 20);
             } else {
                 lastPoint = {
@@ -198,6 +199,3 @@ function listenToUser(canvas) {
         }
     }
 }
-
-
-
