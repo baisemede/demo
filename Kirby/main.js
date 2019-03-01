@@ -1,40 +1,42 @@
-!function(){
-    var duration=30
-    $('.actions').on('click', 'button', function(e){
-        let $button=$(e.currentTarget)
-        let speed=$button.attr('data-speed')
+! function () {
+    var duration = 30
+    $('.actions').on('click', 'button', function (e) {
+        let $button = $(e.currentTarget)
+        let speed = $button.attr('data-speed')
         $button.addClass('active').siblings('.active').removeClass('active');
-        switch(speed){
+        switch (speed) {
             case '1':
-                duration=80
+                duration = 80
                 break
             case '2':
-                duration=30
+                duration = 30
                 break
             case '3':
-                duration=10
+                duration = 10
+            case '4':
+                duration = 1
                 break
         }
     })
 
-    function writeCode(prefix,code,fn){
-        let container=document.querySelector('#code')
-        let styleTag=document.querySelector('#styleTag')
-        let n=0;
-         setTimeout(function repeat(){
-            n+=1
-            container.innerHTML=Prism.highlight(code.substring(0, n),Prism.languages.css)
-            styleTag.innerHTML=code.substring(0,n)
-            container.scrollTop=container.scrollHeight
-            if(n<code.length){
-                setTimeout(repeat,duration)
-            }else{
+    function writeCode(prefix, code, fn) {
+        let container = document.querySelector('#code')
+        let styleTag = document.querySelector('#styleTag')
+        let n = 0;
+        setTimeout(function repeat() {
+            n += 1
+            container.innerHTML = Prism.highlight(code.substring(0, n), Prism.languages.css)
+            styleTag.innerHTML = code.substring(0, n)
+            container.scrollTop = container.scrollHeight
+            if (n < code.length) {
+                setTimeout(repeat, duration)
+            } else {
                 fn && fn.call()
             }
-        },duration)
+        }, duration)
     }
-    
-    let code=`
+
+    let code = `
 /*
 *我来画一个卡比
 */
@@ -250,5 +252,5 @@
     margin-top: 103px;
     transform: rotate(90deg)
 } `
-    writeCode('',code)
+    writeCode('', code)
 }.call()
