@@ -7,7 +7,9 @@
 img {
     width: 700px;
 }
-
+.about-me{
+    margin-left: 43px;
+}
 a {
     text-decoration: none;
     color: #333;
@@ -136,12 +138,10 @@ body {
 .main {
     margin-left: 280px;
     background: #fff;
-    padding: 40px;
+    padding: 5px;
     margin-right: 20px;
 }
 
-
-.section {}
 
 .section .pill {
     float: left;
@@ -152,7 +152,7 @@ body {
     font-size: 40px;
     color: #d9d9d9;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .section .more {
@@ -203,11 +203,11 @@ body {
 
 @media print {
     .aside {
-        width: 200px;
+        width: 243px;
     }
 
     .main {
-        margin-left: 200px;
+        margin-left: 243px;
     }
 
     .aside .user::after {
