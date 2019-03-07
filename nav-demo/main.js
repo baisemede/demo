@@ -46,10 +46,6 @@
 				kbd.appendChild(buttonX)
 
 				div1.appendChild(kbd) /*把kbd放入div1中*/
-				kbd.onclick=function(info){
-					var key=info.target
-					window.open('http://' + hash[key.id], '-blank')
-				}
 				span.onclick=function(info){
 					var key=info.target
 					window.open('http://' + hash[key.id], '-blank')
