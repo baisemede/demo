@@ -33,11 +33,7 @@ a {
     margin: 0 auto;
 }
 
-.clearfix::after {
-    content: '';
-    display: block;
-    clear: both;
-}
+
 
 /* page css*/
 body {
@@ -74,17 +70,6 @@ body {
     margin: 16px auto;
 }
 
-.aside .user::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    margin-top: 20px;
-    border-top: 20px solid #d6d6d6;
-    border-bottom: 20px solid transparent;
-    border-right: 140px solid #d6d6d6;
-    border-left: 140px solid transparent;
-}
 
 .aside .contact {
     padding: 20px;
@@ -148,21 +133,26 @@ body {
     margin-top: 5px;
 }
 
-.section h2 {
+.section h1 {
     font-size: 40px;
-    color: #d9d9d9;
+    color: #57bae8;
     text-align: center;
     margin-top: 15px;
 }
 
+.section h2 {
+    font-size: 30px;
+    color: #57bae8;
+    margin-top: 15px;
+}
 .section .more {
     margin-left: 30px;
     border-left: 1px solid #eee;
 }
 
 .section h3 {
-    color: #666;
-    font-size: 20px;
+    color:#7ebcac;
+    font-size: 25px;
     font-weight: normal;
 }
 
@@ -209,12 +199,6 @@ body {
     .main {
         margin-left: 243px;
     }
-
-    .aside .user::after {
-        border-right-width: 100px;
-        border-left-width: 100px;
-    }
-
     .pill {
         display: none;
     }
