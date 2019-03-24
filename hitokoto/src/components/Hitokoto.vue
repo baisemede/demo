@@ -41,9 +41,7 @@ export default {
     if (this.timer) {
       clearInterval(this.timer);
     } else {
-      this.timer = setInterval(() => {
-        this.btn();
-      }, 6000);
+      this.clock();
     }
   },
   destroyed() {
@@ -56,7 +54,7 @@ export default {
         .then(res => {
           this.one = res.data;
         })
-        .then(err => {console.log(err)});
+        .then(err => {});
     },
     changetype(e) {
       let string = e.target.innerHTML;
@@ -84,6 +82,13 @@ export default {
           break;
       }
       this.btn();
+      clearInterval(this.timer);
+      this.clock();
+    },
+    clock() {
+      this.timer = setInterval(() => {
+        this.btn();
+      }, 8000);
     }
   }
 };
