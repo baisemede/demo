@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="./prism/prism.css">
-    <link rel="stylesheet" href="./style.css">
-    <title>Kirby</title>
-    <style id="styleTag"></style>
-</head>
-<body>
-    <div class="code-kirby">
-        <pre id='code'></pre>
-    </div>
 
-    <div class="preview-kirby">
-        <div class="preview">
-                <div class="alm" >
-                        <div class="kirby">
-                            <div class="body">
-                                 <div class="face">
-                                    <div class="eyes">
-                                        <div class="left eye"></div>
-                                        <div class="right eye"></div>
-                                    </div>
-                                         <div class="mouth"></div>
-                                         <div class="cheeks">
-                                            <div class="left cheek"></div>
-                                            <div class="right cheek"></div>
-                                         </div>
-                                 </div>
-                                    <div class="arms">
-                                        <div class="left arm"></div>
-                                        <div class="right arm"></div>
-                                     </div> 
-                                     <div class="feet">
-                                            <div class="left foot"></div>
-                                            <div class="right foot"></div>
-                                    </div>
-                             </div>
-                         </div>
-                     </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="./prism/prism.css">
+        <link rel="stylesheet" href="./style.css">
+        <title>Kirby</title>
+        <style id="styleTag"></style>
+    </head>
+
+    <body>
+        <div class="code-kirby">
+            <pre id='code'></pre>
         </div>
-    </div>
 
-    <div class="actions">
-        <button  data-speed='1'>慢速</button>
-        <button  data-speed='2' class="active">中速</button>
-        <button  data-speed='3'>快速</button>
-        <button  data-speed='4'>超快速生成</button>
-    </div>
-    <script src="./jquery/jquery-3.3.1.min.js"></script>
-    <script src="./main.js"></script>
-    <script type="text/javascript" src="./prism/prism.js"></script>
-    
-</body>
+        <div class="preview-kirby">
+            <div class="preview">
+                <div class="alm">
+                    <div class="kirby">
+                        <div class="body">
+                            <div class="face">
+                                <div class="eyes">
+                                    <div class="left eye"></div>
+                                    <div class="right eye"></div>
+                                </div>
+                                <div class="mouth"></div>
+                                <div class="cheeks">
+                                    <div class="left cheek"></div>
+                                    <div class="right cheek"></div>
+                                </div>
+                            </div>
+                            <div class="arms">
+                                <div class="left arm"></div>
+                                <div class="right arm"></div>
+                            </div>
+                            <div class="feet">
+                                <div class="left foot"></div>
+                                <div class="right foot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button data-speed='1'>慢速</button>
+            <button data-speed='2' class="active">中速</button>
+            <button data-speed='3'>快速</button>
+            <button data-speed='4'>超快速生成</button>
+        </div>
+        <script src="./jquery/jquery-3.3.1.min.js"></script>
+        <script src="./main.js"></script>
+        <script type="text/javascript" src="./prism/prism.js"></script>
+
+    </body>
+
 </html>

@@ -39,15 +39,15 @@
 				var img = createImg(hash[row[index2]])
 
 				var kbd = tag('kbd') /*创建一个kdb*/
-				kbd.id=row[index2]
+				kbd.id = row[index2]
 				kbd.className = 'key'
 				kbd.appendChild(span)
 				kbd.appendChild(img)
 				kbd.appendChild(buttonX)
 
 				div1.appendChild(kbd) /*把kbd放入div1中*/
-				span.onclick=function(info){
-					var key=info.target
+				span.onclick = function (info) {
+					var key = info.target
 					window.open('http://' + hash[key.id], '-blank')
 				}
 			}
@@ -83,7 +83,7 @@
 		var span = tag('span')
 		span.textContent = textContent
 		span.className = 'text'
-		span.id=textContent
+		span.id = textContent
 		return span
 	}
 
