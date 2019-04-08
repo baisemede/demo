@@ -14,13 +14,35 @@
       </ul>
     </header>
     <main class="main">
-      <div class="wrap">
+     
+      <div class="wrap " >
         <div class="left sym">『</div>
-        <div class="one-content">
+        <div class="one-content" >
+           <transition name="fade"
+      enter-active-class="zoomIn"
+      leave-active-class="zoomOut">
+          <p v-show="show" >{{one.hitokoto}}</p>
+          </transition>
+           <transition name="fade"
+      enter-active-class="zoomIn"
+      leave-active-class="zoomOut">
+          <p v-show="!show" class="animated">{{one.hitokoto}}</p>
+          </transition>
+        </div>
+        <div class="right sym">』</div>
+      </div>
+        
+     <!--  <transition name="fade"
+      enter-active-class="zoomIn"
+      leave-active-class="zoomOut">
+      <div class="wrap animated" v-show="!show">
+        <div class="left sym">『</div>
+        <div class="one-content" >
           <p>{{one.hitokoto}}</p>
         </div>
         <div class="right sym">』</div>
       </div>
+        </transition> -->
       <div>{{one.type}}--{{one.from}}</div>
     </main>
   </div>
@@ -31,7 +53,8 @@ export default {
     return {
       one: {},
       type: "b",
-      timer: ""
+      timer: "",
+      show:false
     };
   },
   created() {
@@ -53,6 +76,7 @@ export default {
         .get(`https://v1.hitokoto.cn/?c=${this.type}`)
         .then(res => {
           this.one = res.data;
+          this.show=!this.show
         })
         .then(err => {});
     },
