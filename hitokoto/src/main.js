@@ -4,6 +4,7 @@ import Axios from 'axios'
 import animate from 'animate.css'
 Vue.use(animate)
 Vue.prototype.$http = Axios
+Vue.config.devtools = true
 
 Vue.config.productionTip = false
 
