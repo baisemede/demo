@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-import HeyUI from 'heyui';
 import Axios from 'axios'
+import animate from 'animate.css'
+Vue.use(animate)
 Vue.prototype.$http = Axios
-Vue.use(HeyUI);
+Vue.config.devtools = true
 
 Vue.config.productionTip = false
 
